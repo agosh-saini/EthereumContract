@@ -2,6 +2,7 @@ pragma solidity ^0.4.0;
 
 contract Escrow {
     
+    // Declaring DIfferent states of the transaction
     enum State {AWAITING_PAYMENT, AWAITING_DELIVERY, COMPLETE, REFUNDED}
     
     // modifiers
