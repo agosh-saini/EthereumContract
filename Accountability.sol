@@ -18,12 +18,13 @@ contract Accountability {
         amount = _amount;
         seller = msg.sender;
         productCreator = msg.sender;
+        productExchange[seller] += amount;
   }
 
 //function to buy the product
   function buy (uint buyAmount) payable {
         //check to is if the product is sold out and the msg.value is enough to buy
-        if (msg.value >= (price * buyAmount) && amount > 0){
+        if (msg.value >= (price * buyAmount) && amount > buyAmount){
             productExchange[msg.sender] += (buyAmount);
             productExchange[seller] -= (buyAmount);
             sold(msg.sender, buyAmount);
